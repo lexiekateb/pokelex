@@ -3,7 +3,14 @@ body{
     color: blueviolet;
     background-color: lightgrey;
     font-family: 'Courier New', Courier, monospace;
-    
+}
+
+.container {
+    display: inline-grid;
+}
+
+.name {
+   
 }
 
 #sprite {

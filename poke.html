@@ -8,19 +8,22 @@
     </head>
 
     <body>
-        <h1 class="head">Pokemon API</h1>
-        <img id="sprite">
+        <div class="container">
+            <h1 class="name" id="pokeName"></h1>
+            <img id="sprite">
 
-        <div class="input">
-            <select id="pokenames" onchange="getPokemon()">
-                <option selected disabled hidden >--select--</option>
-                <option>butterfree</option>
-                <option>pikachu</option>
-                <option>vulpix</option>
-                <option>eevee</option>
-                <option>pachirisu</option>
-                <option>fennekin</option>
-            </select>
+            <div class="changePoke">
+                <button id="previous" onclick="moveBack()">&larr;</button>
+                <button id="next" onclick="moveForward()">&rarr;</button>
+            </div>
+
+            <div class="info">
+                <p id="number"></p>
+                <p id="category"></p>
+                <p id="height"></p>
+                <p id="weight"></p>
+                <p id="blurb"></p>
+            </div>
         </div>
     </body>
 </html>
