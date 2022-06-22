@@ -49,9 +49,16 @@ async function makeBlurb() {
     let main = await data.json();
     console.log(main);
 
-    let personality = main.name;
+    let personality;
     let likes;
     let hates;
+
+    try {
+        personality = main.name;
+    }
+    catch(e) {
+        personality = "indeterminate";
+    }
 
     try {
         likes = main.likes_flavor.name;
@@ -72,7 +79,6 @@ async function makeBlurb() {
 }
 
 async function numBar() {
-    let val = document.getElementById('num').value;
-    currPoke = val;
-    await getPokemon(val);
+    let currPoke = document.getElementById('num').value;
+    await getPokemon(currPoke);
 }
