@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+    color: blueviolet;
+    background-color: darkgray;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#sprite {
+    width: 400px;
+    height: 400px;
+}
