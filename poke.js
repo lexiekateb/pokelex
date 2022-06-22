@@ -14,7 +14,7 @@ async function getPokemon(num) {
     console.log(blurb);
 
     document.getElementById('sprite').src = icon;
-    document.getElementById('pokeName').innerHTML = name;
+    document.getElementById('pokeName').innerHTML = name.toUpperCase();
     document.getElementById('number').innerHTML = "ID: " + num;
     document.getElementById('category').innerHTML = "Category: " + cat;
     document.getElementById('height').innerHTML = "Height" + height;
@@ -69,4 +69,10 @@ async function makeBlurb() {
 
     console.log(typeof(blurb));
     return blurb;
+}
+
+async function numBar() {
+    let val = document.getElementById('num').value;
+    currPoke = val;
+    await getPokemon(val);
 }
