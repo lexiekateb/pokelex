@@ -1,11 +1,12 @@
 body{
     text-align: center;
     color: blueviolet;
-    background-color: darkgray;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: lightgrey;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #sprite {
+    background-color: aliceblue;
     width: 400px;
     height: 400px;
 }
