@@ -6,6 +6,11 @@ async function getPokemon(num) {
     let main = await data.json();
 
     let icon = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png';
+
+    if(currPoke === 4) {
+        icon = 'fake_charmander.png';
+    }
+
     let name = main.name;
     let cat = main.types[0].type.name;
     let height = main.height;
