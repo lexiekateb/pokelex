@@ -44,7 +44,13 @@ button {
     color: black;
     position: absolute;
     top: 400px;
-    left: 317px;
+    left: 285px;
+}
+
+#num {
+    position: absolute;
+    top:50px;
+    left:250px;
 }
 
 #sprite {

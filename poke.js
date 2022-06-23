@@ -45,40 +45,46 @@ async function moveBack() {
 }
 
 async function makeBlurb() {
-    let data = await fetch('https://pokeapi.co/api/v2/nature/' + currPoke);
-    let main = await data.json();
-    console.log(main);
-
-    let personality;
-    let likes;
-    let hates;
 
     try {
-        personality = main.name;
-    }
+        let data = await fetch('https://pokeapi.co/api/v2/nature/' + currPoke);
+        let main = await data.json();
+
+        let personality;
+        let likes;
+        let hates;
+
+        try {
+            personality = main.name;
+        }
+        catch(e) {
+            personality = "indeterminate";
+        }
+
+        try {
+            likes = main.likes_flavor.name;
+        } catch(e) {
+            likes = "nothing";
+        }
+
+        try {
+            hates = main.hates_flavor.name;
+        } catch(e) {
+            hates = "nothing";
+        }
+
+        let blurb = "This pokemon has a " + personality + " personality. It likes " + likes + " and hates " + hates + ".";
+
+        console.log(typeof(blurb));
+        return blurb;
+        }
     catch(e) {
-        personality = "indeterminate";
+        return "This pokemon has no notable traits.";
     }
-
-    try {
-        likes = main.likes_flavor.name;
-    } catch(e) {
-        likes = "nothing";
-    }
-
-    try {
-        hates = main.hates_flavor.name;
-    } catch(e) {
-        hates = "nothing";
-    }
-
-    let blurb = "This pokemon has a " + personality + " personality. It likes " + likes + " and hates " + hates + ".";
-
-    console.log(typeof(blurb));
-    return blurb;
+    
 }
 
 async function numBar() {
-    let currPoke = document.getElementById('num').value;
+    currPoke = document.getElementById('num').value;
     await getPokemon(currPoke);
 }

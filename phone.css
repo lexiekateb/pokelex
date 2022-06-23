@@ -1,0 +1,57 @@
+body {
+    text-align: center;
+    color: blueviolet;
+    background-color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: inline-grid;
+    grid-template-columns: 50px;
+    grid-template-rows: 100px;
+    gap: 50px;
+    padding: 10px;
+}
+
+.name {
+    font-size: 90px;
+    position: absolute;
+    text-align: center;
+    align-self: center;
+    top: 35px;
+    left: 200px;
+}
+
+.info {
+    position: absolute;
+    top: 1210px;
+    left: 5px;
+    font-size: 60px;
+}
+
+.changePoke {
+    position: absolute;
+    top: 1050px;
+    left: 360px;
+}
+
+button {
+    font-size: 90px;
+}
+
+#sprite {
+    background-color: aliceblue;
+    position: absolute;
+    top: 210px;
+    left: 90px;
+    width: 800px;
+    height: 800px;
+    border: 2px double #cccccc;
+}
+
+.search {
+    position: absolute;
+    top: 2000px;
+    left: 350px;
+    font-size: 50px;
+}
