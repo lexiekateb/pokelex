@@ -1,31 +1,57 @@
 let currPoke = 0;
 
 async function getPokemon(num) {
-    console.log('https://pokeapi.co/api/v2/pokemon/' + num);
-    let data = await fetch('https://pokeapi.co/api/v2/pokemon/' + num);
-    let main = await data.json();
 
-    let icon = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png';
-
-    if(currPoke === 4) {
-        icon = 'easter.png';
+    try {
+        let data = await fetchWithTimeout('https://pokeapi.co/api/v2/pokemon/' + num, {timeout: 10000});
+        let main = await data.json();
+    
+        let icon = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png';
+    
+        if(currPoke === 4) {
+            icon = 'easter.png';
+        }
+    
+        let name = main.name;
+        let cat = main.types[0].type.name;
+        let height = main.height;
+        let weight = main.weight;
+        let blurb = await makeBlurb();
+        console.log(blurb);
+    
+        document.getElementById('sprite').src = icon;
+        document.getElementById('pokeName').innerHTML = name.toUpperCase();
+        document.getElementById('number').innerHTML = "ID: " + num;
+        document.getElementById('category').innerHTML = "Category: " + cat;
+        document.getElementById('height').innerHTML = "Height" + height;
+        document.getElementById('height').innerHTML = "Weight: " + weight;
+        document.getElementById('blurb').innerHTML = blurb;
     }
-
-    let name = main.name;
-    let cat = main.types[0].type.name;
-    let height = main.height;
-    let weight = main.weight;
-    let blurb = await makeBlurb();
-    console.log(blurb);
-
-    document.getElementById('sprite').src = icon;
-    document.getElementById('pokeName').innerHTML = name.toUpperCase();
-    document.getElementById('number').innerHTML = "ID: " + num;
-    document.getElementById('category').innerHTML = "Category: " + cat;
-    document.getElementById('height').innerHTML = "Height" + height;
-    document.getElementById('height').innerHTML = "Weight: " + weight;
-    document.getElementById('blurb').innerHTML = blurb;
+    catch(e) {
+        document.getElementById("sprite").src = "sad_squirt.png";
+        document.getElementById("pokedex").style.display='none';
+        document.getElementsByClassName("info").display='none';
+        document.getElementById("previous").style.display = "none";
+        document.getElementById("next").style.display = "none";
+        document.getElementById("num").style.display = "none";
+        document.getElementById("lab").style.display = "none";
+        document.getElementById("pokeName").innerHTML="Oh no! The request timed out.";
+        document.getElementById("cssfile").href = "timeout.css";
+    }
 }
+
+async function fetchWithTimeout(resource, options = {}) {
+    const { timeout = 5000 } = options;
+    
+    const abortController = new AbortController();
+    const id = setTimeout(() => abortController.abort(), timeout);
+    const response = await fetch(resource, {
+      ...options,
+      signal: abortController.signal  
+    });
+    clearTimeout(id);
+    return response;
+  }
 
 async function moveForward() {
     if(currPoke+1 === 898) {

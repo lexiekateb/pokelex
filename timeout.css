@@ -5,16 +5,14 @@ body {
 
 #pokeName {
     position: absolute;
-    left: 50%;
-    top: 100px;
+    left: 430px;
+    top: 10px;
 }
 
 #sprite {
     position: absolute;
-    left: 50px;
-    top: 300px;
-}
-
-.info {
-    background-color: lightskyblue;
+    width: 325px;
+    height: 325px;
+    left: 500px;
+    top: 200px;
 }
