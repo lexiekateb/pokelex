@@ -8,7 +8,7 @@ async function getPokemon(num) {
     let icon = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png';
 
     if(currPoke === 4) {
-        icon = 'eastergit.png';
+        icon = 'easter.png';
     }
 
     let name = main.name;
