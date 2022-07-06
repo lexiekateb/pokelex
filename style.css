@@ -1,3 +1,7 @@
+:root {
+    --res: 0;
+}
+
 body {
     text-align: center;
     color: black;
@@ -5,18 +9,28 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 100%;
+    min-width: 600px;
+    max-width: 800px;
+}
+
 .pokedex {
     position: relative;
-    top:0;
-    left:0;
+    top:0%;
+    left:0%;
 }
 
 .info {
     color: black; 
     background-color: #32fb09;
     position: absolute;
-    top: 260px;
-    left: 710px;
+    top: 40%;
+    left: 60%;
     height: 270px;
     width: 270px;
 }
@@ -25,8 +39,8 @@ body {
     position: absolute;
     width: 270px;
     text-align: center;
-    top: 185px;
-    left: 710px;
+    top: 29%;
+    left: 60%;
     background-color: #32fb09;
 }
 
@@ -40,21 +54,21 @@ button {
 .search {
     color: black;
     position: absolute;
-    top: 517px;
-    left: 755px;
+    top: 82.5%;
+    left: 65%;
 }
 
 #sprite {
     background-color: white;
     position: absolute;
-    top: 167px;
-    left: 264px;
+    top: 26.7%;
+    left: 4%;
     width: 325px;
     height: 325px;
 }
 
 .changePoke {
     position: absolute;
-    top: 450px;
-    left: 780px;
+    top: 70.5%;
+    left: 69%;
 }
